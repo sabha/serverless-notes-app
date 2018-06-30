@@ -16,7 +16,7 @@ provider:
   name: aws
   runtime: nodejs8.10
   stage: prod
-  region: us-west-1
+  region: us-west-2
 
   # 'iamRoleStatements' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
@@ -30,7 +30,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:us-west-1:*:*"
+      Resource: "arn:aws:dynamodb:us-west-2:*:*"
 
 functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
@@ -82,7 +82,7 @@ functions:
           method: put
           cors: true
           authorizer: aws_iam
-          
+
   delete:
     # Defines an HTTP API endpoint that calls the main function in delete.js
     # - path: url path is /notes/{id}
